@@ -1,16 +1,3 @@
-/* a minimalist set of CSS resets */
-
-/* default to border-box */
-html {
-  box-sizing: border-box;
-  font-size: 16px;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-/* adjust typography defaults */
 body {
   margin: 2em;
   font-family: helvetica, arial, sans-serif;
@@ -25,4 +12,46 @@ h1 {
 button {
   padding: 10px;
   border-radius: 10px;
+}
+
+#gameButtonArea > button {
+  width: 200px;
+  height: 200px;
+  margin: 2px;
+}
+
+.hidden {
+  display: none;
+}
+
+#button1 {
+  background: lightgreen;
+}
+
+#button2 {
+  background: lightblue;
+}
+
+#button3 {
+  background: pink;
+}
+
+#button4 {
+  background: lightyellow;
+}
+
+#button1:active {
+  background: green;
+}
+
+#button2:active {
+  background: blue;
+}
+
+#button3:active {
+  background: red;
+}
+
+#button4:active {
+  background: yellow;
 }

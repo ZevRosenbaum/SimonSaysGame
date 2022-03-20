@@ -1,4 +1,23 @@
-/* If you're feeling fancy you can add interactivity 
-    to your site with Javascript */
+//Global Variables
+var pattern = [2, 2, 4, 3, 2, 1, 2, 4];
+var progress = 0;
+var gamePlaying = false;
 
-console.log("Hello, world!");
+function startGame() {
+  //initialize game variables
+  progress = 0;
+  gamePlaying = true;
+  
+  // swap the Start and Stop buttons
+  document.getElementById("startBtn").classList.add("hidden");
+  document.getElementById("stopBtn").classList.remove("hidden");
+}
+
+function stopGame() {
+  //set gamePlaying to false as the game is now over
+  gamePlaying = false;
+  
+  // swap the Start and Stop buttons
+  document.getElementById("startBtn").classList.remove("hidden");
+  document.getElementById("stopBtn").classList.add("hidden");
+}
