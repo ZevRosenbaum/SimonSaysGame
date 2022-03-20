@@ -2,7 +2,7 @@
 const clueHoldTime = 1000; //how long to hold each clue
 const cluePauseTime = 333; //how long to pause in between clues
 const nextClueWaitTime = 1000; // ow long to wait before starting playback of the clue sequence
-
+const numGameButtons = 4;
 
 //Global Variables
 var pattern = [2, 2, 4, 3, 2, 1, 2, 4];
@@ -11,6 +11,14 @@ var gamePlaying = false;
 var tonePlaying = false;
 var volume = 0.5; //must be between 0.0 and 1.0
 var guessCounter = 0;
+
+// Generates a random pattern
+function generateRandomPattern() {
+  let patternLength = pattern.length
+  for (let i=0;i<patternLength;i++) {
+    var guessMath.floor(Math.random() * numGameButtons) + 1; 
+  }
+}
 
 function startGame() {
   //initialize game variables
