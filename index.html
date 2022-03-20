@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="https://glitch.com/favicon.ico" />
 
-    <title>Hello world!</title>
+    <title>Simon Game</title>
 
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css" />
@@ -14,17 +14,27 @@
     <script src="/script.js" defer></script>
   </head>
   <body>
-    <!-- this is the start of content -->
     <h1>
       Simon - Light and Sound Memory Game
     </h1>
+    
     <p>
       Welcome to the game! Repeat back the pattern by pressing buttons.
     </p>
     
+    <!-- Start button for the game -->
     <button id="startBtn">Start</button>
-      
-    </button>
+    
+    <!-- End button for the game -->
+    <button id="stopBtn">End</button>
+    
+    <!-- Buttons to be selected by user for the game -->
+    <div id="gameButtonArea">
+      <button id="button1"></button>
+      <button id="button2"></button>
+      <button id="button3"></button>
+      <button id="button4"></button>
+    </div>
     
   </body>
 </html>

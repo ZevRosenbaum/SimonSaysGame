@@ -12,14 +12,17 @@ html {
 
 /* adjust typography defaults */
 body {
-  margin: 1rem;
-  font-family: sans-serif;
-  line-height: 1.5;
+  margin: 2em;
+  font-family: helvetica, arial, sans-serif;
+  background-color: slategrey;
+  color: white;
 }
 
-/* images and videos max out at full width */
-img,
-video {
-  height: auto;
-  max-width: 100%;
+h1 {
+  font-family: verdana, arial, sans-serif;
+}
+
+button {
+  padding: 10px;
+  border-radius: 10px;
 }
