@@ -9,12 +9,18 @@ h1 {
   font-family: verdana, arial, sans-serif;
 }
 
+img {
+  float: right;
+}
+
 button {
   padding: 10px;
   border-radius: 10px;
 }
 
 #gameButtonArea > button {
+  padding: 20px;
+  border-radius: 100px;
   width: 200px;
   height: 200px;
   margin: 2px;
