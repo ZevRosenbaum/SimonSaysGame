@@ -48,16 +48,25 @@ If you recorded multiple GIFs for all the implemented features, you can add them
 
 ## Reflection Questions
 1. If you used any outside resources to help complete your submission (websites, books, people, etc) list them here. 
-[YOUR ANSWER HERE]
+
+a. W3 Schools – SetInterval and ClearInterval
+b. StackOverflow – random debugging and syntax questions
 
 2. What was a challenge you encountered in creating this submission (be specific)? How did you overcome it? (recommended 200 - 400 words) 
-[YOUR ANSWER HERE]
+
+The most challenging part of the project for me was creating a timer for the game. I aimed to achieve a 4-minute countdown timer where the player loses the game if time runs out. It took me a bit of time to debug an issue where the timer sped up and starting skipping seconds. Eventually I realized that this was due to the countDown function being called multiple times, thereby causing the seconds to be deducted faster and faster. Originally, the countDown function was located in the playClueSequence function – in the for loop – causing too many executions of the countDown function. The countDown function reduces the value of the global variable sec, which represents the seconds remaining. I resolved this bug by moving the countDown function to the startGame function, so that the function isn’t repeatedly called (however, the setInterval function located inside the countDown function recursively calls the function every 1 second - but this is necessary to create the timer utility).
 
 3. What questions about web development do you have after completing your submission? (recommended 100 - 300 words) 
-[YOUR ANSWER HERE]
+
+What is the best way to make your website responsive to different screen sizes? There are many different frameworks that can be utilized for this purpose. Currently, this webpage’s formatting is not ideal on mobile phones with narrow screen sizes. Additionally, what are some best practices for choosing how to style your webpage? How would one decide what is aesthetic for the end user?
 
 4. If you had a few more hours to work on this project, what would you spend them doing (for example: refactoring certain functions, adding additional features, etc). Be specific. (recommended 100 - 300 words) 
-[YOUR ANSWER HERE]
+
+a. Make webpage responsive to different screen sizes
+b. Adjust the timer so that it resets after every turn, rather than a setup once for the whole game.
+c. Add easy, medium, and hard settings for the game. These would be buttons that appear once the user selects “Start”, but before the game begins. Implement these features by having 4 buttons for Easy, 6 buttons for medium, and 8 buttons for hard. In addition, the patterns increase by faster rates for the medium and hard modes of the game.
+e. Add a link to a detailed history of the Simon Says game, so that players can read about the history of the game.
+
 
 
 
