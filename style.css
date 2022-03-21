@@ -62,7 +62,3 @@ button {
 #button4:active, #button4.lit {
   background: yellow;
 }
-
-#footer {
-  float: left;
-}
