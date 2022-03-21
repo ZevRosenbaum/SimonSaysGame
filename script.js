@@ -69,6 +69,7 @@ function countDown() {
   
   let time = "00:00:" + sec;
   document.getElementById("timer").innerHTML = time;
+  setInterval("countDown()",1000);
 }
 
 // Sound Synthesis Functions
@@ -128,6 +129,7 @@ function playSingleClue(btn) {
     lightButton(btn);
     playTone(btn,clueHoldTime);
     setTimeout(clearButton,clueHoldTime,btn);
+    
   }
 }
 
@@ -135,7 +137,8 @@ function playClueSequence() {
   guessCounter = 0;
   let delay = nextClueWaitTime; //set delay to initial wait time
   for(let i=0;i<=progress;i++) { // for each clue that is revealed so far
-    setInterval(countDown(),1000);
+    resetTimer();
+    countDown();
     console.log("play single clue: " + pattern[i] + " in " + delay + "ms")
     setTimeout(playSingleClue,delay,pattern[i]) // set a timeout to play that clue
     delay += clueHoldTime
@@ -159,6 +162,10 @@ function guess(btn) {
   console.log("user guessed: " + btn);
   if (!gamePlaying) {
     return;
+  }
+  
+  if (sec <= 0) {
+    loseGame();
   }
   
   if (pattern[guessCounter] == btn) {
