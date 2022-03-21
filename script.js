@@ -30,6 +30,7 @@ function startGame() {
   progress = 0;
   gamePlaying = true;
   strikesRemaining = 3;
+  document.getElementById("remainingStrikes").innerHTML = strikesRemaining;
   
   // swap the Start and Stop buttons
   generateRandomPattern();
@@ -152,6 +153,7 @@ function guess(btn) {
     else {
       //Guess was incorrect
       strikesRemaining--;
+      document.getElementById("remainingStrikes").innerHTML = strikesRemaining;
       // If the user has made three mistakes they lose
       if (strikesRemaining <= 0) {
         // GAME OVER: LOSE!
