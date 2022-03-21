@@ -23,7 +23,8 @@ button {
   border-radius: 100px;
   width: 200px;
   height: 200px;
-  margin: px;
+  border: 1px solid white;
+  box-shadow: 2px 4px;
 }
 
 .hidden {
