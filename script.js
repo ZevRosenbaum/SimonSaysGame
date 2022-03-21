@@ -1,9 +1,9 @@
 //Global Constants
-var cluePauseTime = 333; //how long to pause in between clues
 const nextClueWaitTime = 1000; // ow long to wait before starting playback of the clue sequence
 const numGameButtons = 4;
 
 //Global Variables
+var cluePauseTime = 333; //how long to pause in between clues
 var clueHoldTime = 1000; //how long to hold each clue
 var pattern = [2, 2, 4, 3, 2, 1, 2, 4];
 var progress = 0;
@@ -12,6 +12,7 @@ var tonePlaying = false;
 var volume = 0.5; //must be between 0.0 and 1.0
 var guessCounter = 0;
 var strikesRemaining = 3; //user starts with 3 strikes before they lose the game
+var sec = 15;
 
 // Generates a random pattern
 function generateRandomPattern() {
@@ -33,6 +34,8 @@ function startGame() {
   gamePlaying = true;
   strikesRemaining = 3;
   document.getElementById("remainingStrikes").innerHTML = strikesRemaining;
+  date = new Date(15000);
+  document.getElementById("timer").innerHTML = date.toLocaleTimeString();
   
   // swap the Start and Stop buttons
   generateRandomPattern();
@@ -50,6 +53,14 @@ function stopGame() {
   document.getElementById("startBtn").classList.remove("hidden");
   document.getElementById("stopBtn").classList.add("hidden");
   document.getElementById("playerStrikes").classList.add("hidden");
+}
+
+function resetTimer() {
+  document.getElementById("timer").innerHTML = "00:00:15";
+}
+
+function countDown() {
+  
 }
 
 // Sound Synthesis Functions
@@ -116,7 +127,6 @@ function playClueSequence() {
   guessCounter = 0;
   let delay = nextClueWaitTime; //set delay to initial wait time
   for(let i=0;i<=progress;i++) { // for each clue that is revealed so far
-    setInterval(fakeFunction(),1000);
     console.log("play single clue: " + pattern[i] + " in " + delay + "ms")
     setTimeout(playSingleClue,delay,pattern[i]) // set a timeout to play that clue
     delay += clueHoldTime
