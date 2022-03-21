@@ -59,7 +59,6 @@ function stopGame() {
 function resetTimer() {
   document.getElementById("timer").innerHTML = "25";
   sec = 25;
-  countDown();
 }
 
 function countDown() {
@@ -67,15 +66,11 @@ function countDown() {
   let newSec = sec.toString();
   var myInterval;
   
-  
   if (sec <= 0) {
     document.getElementById("timer").innerHTML = "0";
-    clearInterval("countDown()");
-    loseGame();
   }
   else {
-    document.getElementById("timer").innerHTML = newSec; 
-    myInterval = setInterval(myInterval,1000);
+    document.getElementById("timer").innerHTML = newSec;
   }
 }
 
@@ -141,9 +136,16 @@ function playSingleClue(btn) {
 
 function playClueSequence() {
   guessCounter = 0;
+  var myInterval;
   let delay = nextClueWaitTime; //set delay to initial wait time
   for(let i=0;i<=progress;i++) { // for each clue that is revealed so far
     resetTimer();
+    myInterval = setInterval("countDown()",1000);
+    
+    if (sec <= 0) {
+      clearInterval(myInterval);
+      loseGame();
+    }
     console.log("play single clue: " + pattern[i] + " in " + delay + "ms")
     setTimeout(playSingleClue,delay,pattern[i]) // set a timeout to play that clue
     delay += clueHoldTime
