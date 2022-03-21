@@ -1,10 +1,10 @@
 //Global Constants
-const clueHoldTime = 1000; //how long to hold each clue
 const cluePauseTime = 333; //how long to pause in between clues
 const nextClueWaitTime = 1000; // ow long to wait before starting playback of the clue sequence
 const numGameButtons = 4;
 
 //Global Variables
+var clueHoldTime = 1000; //how long to hold each clue
 var pattern = [2, 2, 4, 3, 2, 1, 2, 4];
 var progress = 0;
 var gamePlaying = false;
@@ -27,6 +27,7 @@ function generateRandomPattern() {
 
 function startGame() {
   //initialize game variables
+  clueHoldTime = 1000;
   progress = 0;
   gamePlaying = true;
   strikesRemaining = 3;
@@ -118,6 +119,7 @@ function playClueSequence() {
     setTimeout(playSingleClue,delay,pattern[i]) // set a timeout to play that clue
     delay += clueHoldTime
     delay += cluePauseTime;
+    clueHoldTime -= 50;
   }
 }
 
@@ -151,6 +153,9 @@ function guess(btn) {
       }
     }
     else {
+      guessCounter++;
+    }
+  }else {
       //Guess was incorrect
       strikesRemaining--;
       document.getElementById("remainingStrikes").innerHTML = strikesRemaining;
@@ -161,4 +166,3 @@ function guess(btn) {
       }
     }
   }
-}
