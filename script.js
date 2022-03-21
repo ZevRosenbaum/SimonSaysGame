@@ -13,6 +13,7 @@ var volume = 0.5; //must be between 0.0 and 1.0
 var guessCounter = 0;
 var strikesRemaining = 3; //user starts with 3 strikes before they lose the game
 var sec = 25;
+var myTimer;
 
 // Generates a random pattern
 function generateRandomPattern() {
@@ -36,7 +37,6 @@ function startGame() {
   document.getElementById("remainingStrikes").innerHTML = strikesRemaining;
   document.getElementById("timer").innerHTML = 25;
   sec = 25;
-  //resetTimer();
   
   // swap the Start and Stop buttons
   generateRandomPattern();
@@ -64,11 +64,10 @@ function resetTimer() {
 
 function countDown() {
   sec -= 1;
-  //let newSec = sec.toString();
-  //var myInterval;
   
   if (sec <= 0) {
     document.getElementById("timer").innerHTML = 0;
+    loseGame();
   }
   else {
     document.getElementById("timer").innerHTML = sec;
@@ -139,20 +138,13 @@ function playClueSequence() {
   guessCounter = 0;
   let delay = nextClueWaitTime; //set delay to initial wait time
   for(let i=0;i<=progress;i++) { // for each clue that is revealed so far
-    resetTimer();
-    var myInterval = setInterval("countDown()",1000);
-    if (sec <= 0) {
-      loseGame();
-    }
     console.log("play single clue: " + pattern[i] + " in " + delay + "ms")
     setTimeout(playSingleClue,delay,pattern[i]) // set a timeout to play that clue
-    //clearInterval(myInterval);
     delay += clueHoldTime
     delay += cluePauseTime;
     clueHoldTime -= 20;
     cluePauseTime -= 1;
   }
-  
 }
 
 function loseGame() {
