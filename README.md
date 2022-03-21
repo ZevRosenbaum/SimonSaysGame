@@ -65,7 +65,7 @@ What is the best way to make your website responsive to different screen sizes? 
 a. Make webpage responsive to different screen sizes    
 b. Adjust the timer so that it resets after every turn, rather than a setup once for the whole game.   
 c. Add easy, medium, and hard settings for the game. These would be buttons that appear once the user selects “Start”, but before the game begins. Implement these features by having 4 buttons for Easy, 6 buttons for medium, and 8 buttons for hard. In addition, the patterns increase by faster rates for the medium and hard modes of the game.   
-e. Add a link to a detailed history of the Simon Says game, so that players can read about the history of the game.
+d. Add a link to a detailed history of the Simon Says game, so that players can read about the history of the game.
 
 
 
