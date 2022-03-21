@@ -12,7 +12,7 @@ var tonePlaying = false;
 var volume = 0.5; //must be between 0.0 and 1.0
 var guessCounter = 0;
 var strikesRemaining = 3; //user starts with 3 strikes before they lose the game
-var sec = 45;
+var sec = 25;
 
 // Generates a random pattern
 function generateRandomPattern() {
@@ -34,8 +34,8 @@ function startGame() {
   gamePlaying = true;
   strikesRemaining = 3;
   document.getElementById("remainingStrikes").innerHTML = strikesRemaining;
-  document.getElementById("timer").innerHTML = "15";
-  sec = 45;
+  document.getElementById("timer").innerHTML = "25";
+  sec = 25;
   //resetTimer();
   
   // swap the Start and Stop buttons
@@ -57,20 +57,25 @@ function stopGame() {
 }
 
 function resetTimer() {
-  document.getElementById("timer").innerHTML = "45";
-  sec = 45;
-  setInterval("countDown()",1000);
+  document.getElementById("timer").innerHTML = "25";
+  sec = 25;
+  countDown();
 }
 
 function countDown() {
   sec -= 1;
   let newSec = sec.toString();
-
+  var myInterval;
+  
+  
   if (sec <= 0) {
     document.getElementById("timer").innerHTML = "0";
+    clearInterval("countDown()");
+    loseGame();
   }
   else {
     document.getElementById("timer").innerHTML = newSec; 
+    myInterval = setInterval(myInterval,1000);
   }
 }
 
@@ -131,7 +136,6 @@ function playSingleClue(btn) {
     lightButton(btn);
     playTone(btn,clueHoldTime);
     setTimeout(clearButton,clueHoldTime,btn);
-    
   }
 }
 
@@ -139,6 +143,7 @@ function playClueSequence() {
   guessCounter = 0;
   let delay = nextClueWaitTime; //set delay to initial wait time
   for(let i=0;i<=progress;i++) { // for each clue that is revealed so far
+    resetTimer();
     console.log("play single clue: " + pattern[i] + " in " + delay + "ms")
     setTimeout(playSingleClue,delay,pattern[i]) // set a timeout to play that clue
     delay += clueHoldTime
@@ -166,9 +171,9 @@ function guess(btn) {
   
   if (sec <= 0) {
     loseGame();
+    return;
   }
   
-  resetTimer();
   if (pattern[guessCounter] == btn) {
     //Guess was correct!
     if (guessCounter == progress) {
