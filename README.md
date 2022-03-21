@@ -41,7 +41,9 @@ The following **additional** features are implemented:
 ## Video Walkthrough (GIF)
 
 If you recorded multiple GIFs for all the implemented features, you can add them here:
-![](gif1-link-here)
+Losing game by running out of strikes
+![](http://g.recordit.co/oU5AmTk8OQ.gif)
+Losing game by running out timer
 ![](http://g.recordit.co/g8oIG3l4wA.gif)
 ![](gif3-link-here)
 ![](gif4-link-here)
