@@ -59,19 +59,21 @@ function stopGame() {
 function resetTimer() {
   document.getElementById("timer").innerHTML = "15";
   sec = 15;
-  countDown();
+  if (sec <-)
+  let myInterval = setInterval("countDown()",1000);
+  if (sec <= 0) {
+    sec = 0;
+    let newSec = "0";
+    document.getElementById("timer").innerHTML = newSec;
+    clearInterval(myInterval);
+  }
 }
 
 function countDown() {
   sec -= 1;
   let newSec = sec.toString();
-  
-  if (sec <= 0) {
-    clearInterval(myInterval);
-  }
 
   document.getElementById("timer").innerHTML = newSec;
-  let myInterval = setInterval("countDown()",1000);
 }
 
 // Sound Synthesis Functions
