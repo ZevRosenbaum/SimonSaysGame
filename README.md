@@ -36,11 +36,10 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [x] Picture of Simon Says Game
+- [x] Picture of classic Simon Says Game
 
 ## Video Walkthrough (GIF)
 
-If you recorded multiple GIFs for all the implemented features, you can add them here:
 Losing game by running out of strikes
 ![](http://g.recordit.co/oU5AmTk8OQ.gif)
 Losing game by running out timer
