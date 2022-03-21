@@ -67,9 +67,13 @@ function countDown() {
     newSec = "0" + newSec;
   }
   
+  if (sec <= 0) {
+    clearInterval(myInterval);
+  }
+  
   let time = "00:00:" + sec;
   document.getElementById("timer").innerHTML = time;
-  setInterval("countDown()",1000);
+  const myInterval = setInterval(countDown(),1000);
 }
 
 // Sound Synthesis Functions
