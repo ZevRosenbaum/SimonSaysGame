@@ -34,8 +34,7 @@ function startGame() {
   gamePlaying = true;
   strikesRemaining = 3;
   document.getElementById("remainingStrikes").innerHTML = strikesRemaining;
-  date = new Date(15000);
-  document.getElementById("timer").innerHTML = date.toLocaleTimeString();
+  resetTimer();
   
   // swap the Start and Stop buttons
   generateRandomPattern();
@@ -57,10 +56,19 @@ function stopGame() {
 
 function resetTimer() {
   document.getElementById("timer").innerHTML = "00:00:15";
+  sec = 15;
 }
 
 function countDown() {
+  sec -= 1;
+  let newSec = sec.toString();
   
+  if (sec < 10) {
+    newSec = "0" + newSec;
+  }
+  
+  let time = "00:00:" + sec;
+  document.getElementById("timer").innerHTML = time;
 }
 
 // Sound Synthesis Functions
@@ -127,6 +135,7 @@ function playClueSequence() {
   guessCounter = 0;
   let delay = nextClueWaitTime; //set delay to initial wait time
   for(let i=0;i<=progress;i++) { // for each clue that is revealed so far
+    setInterval(countDown(),1000);
     console.log("play single clue: " + pattern[i] + " in " + delay + "ms")
     setTimeout(playSingleClue,delay,pattern[i]) // set a timeout to play that clue
     delay += clueHoldTime
