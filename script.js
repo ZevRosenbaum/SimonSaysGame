@@ -12,7 +12,7 @@ var tonePlaying = false;
 var volume = 0.5; //must be between 0.0 and 1.0
 var guessCounter = 0;
 var strikesRemaining = 3; //user starts with 3 strikes before they lose the game
-var sec = 25;
+var sec = 240;
 var myTimer;
 
 // Generates a random pattern
@@ -35,14 +35,15 @@ function startGame() {
   gamePlaying = true;
   strikesRemaining = 3;
   document.getElementById("remainingStrikes").innerHTML = strikesRemaining;
-  document.getElementById("timer").innerHTML = 25;
-  sec = 25;
+  document.getElementById("timer").innerHTML = 240;
+  sec = 240;
   
   // swap the Start and Stop buttons
   generateRandomPattern();
   document.getElementById("startBtn").classList.add("hidden");
   document.getElementById("stopBtn").classList.remove("hidden");
   document.getElementById("playerStrikes").classList.remove("hidden");
+  countDown();
   playClueSequence()
 }
 
@@ -56,21 +57,18 @@ function stopGame() {
   document.getElementById("playerStrikes").classList.add("hidden");
 }
 
-function resetTimer() {
-  document.getElementById("timer").innerHTML = 25;
-  sec = 25;
-  document.getElementById("timer").innerHTML.style.color = 'red';
-}
-
 function countDown() {
+  clearInterval(myTimer);
   sec -= 1;
   
   if (sec <= 0) {
     document.getElementById("timer").innerHTML = 0;
+    clearInterval(myTimer);
     loseGame();
   }
   else {
     document.getElementById("timer").innerHTML = sec;
+    myTimer = setInterval("countDown()",1000);
   }
 }
 
