@@ -49,7 +49,7 @@ If you recorded multiple GIFs for all the implemented features, you can add them
 ## Reflection Questions
 1. If you used any outside resources to help complete your submission (websites, books, people, etc) list them here. 
 
-a. W3 Schools – SetInterval and ClearInterval
+a. W3 Schools – SetInterval and ClearInterval  
 b. StackOverflow – random debugging and syntax questions
 
 2. What was a challenge you encountered in creating this submission (be specific)? How did you overcome it? (recommended 200 - 400 words) 
@@ -62,9 +62,9 @@ What is the best way to make your website responsive to different screen sizes? 
 
 4. If you had a few more hours to work on this project, what would you spend them doing (for example: refactoring certain functions, adding additional features, etc). Be specific. (recommended 100 - 300 words) 
 
-a. Make webpage responsive to different screen sizes
-b. Adjust the timer so that it resets after every turn, rather than a setup once for the whole game.
-c. Add easy, medium, and hard settings for the game. These would be buttons that appear once the user selects “Start”, but before the game begins. Implement these features by having 4 buttons for Easy, 6 buttons for medium, and 8 buttons for hard. In addition, the patterns increase by faster rates for the medium and hard modes of the game.
+a. Make webpage responsive to different screen sizes    
+b. Adjust the timer so that it resets after every turn, rather than a setup once for the whole game.   
+c. Add easy, medium, and hard settings for the game. These would be buttons that appear once the user selects “Start”, but before the game begins. Implement these features by having 4 buttons for Easy, 6 buttons for medium, and 8 buttons for hard. In addition, the patterns increase by faster rates for the medium and hard modes of the game.   
 e. Add a link to a detailed history of the Simon Says game, so that players can read about the history of the game.
 
 
