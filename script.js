@@ -59,6 +59,7 @@ function stopGame() {
 function resetTimer() {
   document.getElementById("timer").innerHTML = 25;
   sec = 25;
+  document.getElementById("timer").innerHTML.style.color = 'red';
 }
 
 function countDown() {
@@ -139,13 +140,13 @@ function playClueSequence() {
   let delay = nextClueWaitTime; //set delay to initial wait time
   for(let i=0;i<=progress;i++) { // for each clue that is revealed so far
     resetTimer();
+    var myInterval = setInterval("countDown()",1000);
     if (sec <= 0) {
       loseGame();
     }
     console.log("play single clue: " + pattern[i] + " in " + delay + "ms")
-    var myInterval = setInterval("countDown()",1000);
     setTimeout(playSingleClue,delay,pattern[i]) // set a timeout to play that clue
-    clearInterval(myInterval);
+    //clearInterval(myInterval);
     delay += clueHoldTime
     delay += cluePauseTime;
     clueHoldTime -= 20;
@@ -167,11 +168,6 @@ function winGame() {
 function guess(btn) {
   console.log("user guessed: " + btn);
   if (!gamePlaying) {
-    return;
-  }
-  
-  if (sec <= 0) {
-    loseGame();
     return;
   }
   
