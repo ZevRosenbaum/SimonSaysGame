@@ -58,6 +58,7 @@ function stopGame() {
 }
 
 function countDown() {
+  // Create a countdown timer of 4 minutes
   clearInterval(myTimer);
   sec -= 1;
   
