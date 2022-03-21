@@ -3,7 +3,6 @@ const clueHoldTime = 1000; //how long to hold each clue
 const cluePauseTime = 333; //how long to pause in between clues
 const nextClueWaitTime = 1000; // ow long to wait before starting playback of the clue sequence
 const numGameButtons = 4;
-const totalMistakesAllowed = 3;
 
 //Global Variables
 var pattern = [2, 2, 4, 3, 2, 1, 2, 4];
@@ -12,7 +11,7 @@ var gamePlaying = false;
 var tonePlaying = false;
 var volume = 0.5; //must be between 0.0 and 1.0
 var guessCounter = 0;
-var numMistakes = 0;
+var strikesRemaining = 3; //user starts with 3 strikes before they lose the game
 
 // Generates a random pattern
 function generateRandomPattern() {
@@ -30,7 +29,7 @@ function startGame() {
   //initialize game variables
   progress = 0;
   gamePlaying = true;
-  numMistakes = 0;
+  strikesRemaining = 3;
   
   // swap the Start and Stop buttons
   generateRandomPattern();
@@ -152,13 +151,12 @@ function guess(btn) {
     }
     else {
       //Guess was incorrect
-      numMistakes++;
+      strikesRemaining--;
       // If the user has made three mistakes they lose
-      if (numMistakes >= totalMistakesAllowed) {
+      if (strikesRemaining <= 0) {
         // GAME OVER: LOSE!
-      loseGame(); 
+        loseGame(); 
       }
-      else
     }
   }
 }
