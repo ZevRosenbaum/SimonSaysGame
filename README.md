@@ -8,7 +8,7 @@ Time spent: **3** hours spent in total
 
 Link to project: https://glitch.com/edit/#!/simonsaysgame-zevrosenbaum
 
-Project is also live on my website! zevrosenbaum.com/SimonGame.html
+Project is also live on my website! https://www.zevrosenbaum.com/SimonGame.html
 
 ## Required Functionality
 
