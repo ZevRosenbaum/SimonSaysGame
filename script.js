@@ -3,6 +3,7 @@ const clueHoldTime = 1000; //how long to hold each clue
 const cluePauseTime = 333; //how long to pause in between clues
 const nextClueWaitTime = 1000; // ow long to wait before starting playback of the clue sequence
 const numGameButtons = 4;
+const totalMistakesAllowed = 3;
 
 //Global Variables
 var pattern = [2, 2, 4, 3, 2, 1, 2, 4];
@@ -11,12 +12,17 @@ var gamePlaying = false;
 var tonePlaying = false;
 var volume = 0.5; //must be between 0.0 and 1.0
 var guessCounter = 0;
+var numMistakes = 0;
 
 // Generates a random pattern
 function generateRandomPattern() {
   let patternLength = pattern.length
+  // Loop through the pattern array
   for (let i=0;i<patternLength;i++) {
-    var guessMath.floor(Math.random() * numGameButtons) + 1; 
+    // Generate a random integer between 1 and 4, inclusive
+    var currTone = Math.floor(Math.random() * numGameButtons) + 1; 
+    // Assign integer to array position in pattern
+    pattern[i] = currTone;
   }
 }
 
@@ -24,10 +30,13 @@ function startGame() {
   //initialize game variables
   progress = 0;
   gamePlaying = true;
+  numMistakes = 0;
   
   // swap the Start and Stop buttons
+  generateRandomPattern();
   document.getElementById("startBtn").classList.add("hidden");
   document.getElementById("stopBtn").classList.remove("hidden");
+  document.getElementById("playerStrikes").classList.remove("hidden");
   playClueSequence()
 }
 
@@ -38,6 +47,7 @@ function stopGame() {
   // swap the Start and Stop buttons
   document.getElementById("startBtn").classList.remove("hidden");
   document.getElementById("stopBtn").classList.add("hidden");
+  document.getElementById("playerStrikes").classList.add("hidden");
 }
 
 // Sound Synthesis Functions
@@ -142,8 +152,13 @@ function guess(btn) {
     }
     else {
       //Guess was incorrect
-      // GAME OVER: LOSE!
-      loseGame();
+      numMistakes++;
+      // If the user has made three mistakes they lose
+      if (numMistakes >= totalMistakesAllowed) {
+        // GAME OVER: LOSE!
+      loseGame(); 
+      }
+      else
     }
   }
 }
