@@ -1,5 +1,5 @@
 //Global Constants
-const cluePauseTime = 333; //how long to pause in between clues
+var cluePauseTime = 333; //how long to pause in between clues
 const nextClueWaitTime = 1000; // ow long to wait before starting playback of the clue sequence
 const numGameButtons = 4;
 
@@ -28,6 +28,7 @@ function generateRandomPattern() {
 function startGame() {
   //initialize game variables
   clueHoldTime = 1000;
+  cluePauseTime = 333;
   progress = 0;
   gamePlaying = true;
   strikesRemaining = 3;
@@ -115,11 +116,13 @@ function playClueSequence() {
   guessCounter = 0;
   let delay = nextClueWaitTime; //set delay to initial wait time
   for(let i=0;i<=progress;i++) { // for each clue that is revealed so far
+    setInterval(fakeFunction(),1000);
     console.log("play single clue: " + pattern[i] + " in " + delay + "ms")
     setTimeout(playSingleClue,delay,pattern[i]) // set a timeout to play that clue
     delay += clueHoldTime
     delay += cluePauseTime;
-    clueHoldTime -= 15;
+    clueHoldTime -= 20;
+    cluePauseTime -= 1;
   }
 }
 
