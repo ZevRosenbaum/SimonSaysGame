@@ -45,7 +45,7 @@ Losing game by running out of strikes
 Losing game by running out timer
 ![](http://g.recordit.co/g8oIG3l4wA.gif)
 Win game!
-![](http://g.recordit.co/uGt0luYYBw.gif)
+![](http://g.recordit.co/S5rkS7jApS.gif)
 
 ## Reflection Questions
 1. If you used any outside resources to help complete your submission (websites, books, people, etc) list them here. 
