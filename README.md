@@ -73,7 +73,7 @@ d. Add a link to a detailed history of the Simon Says game, so that players can 
 
 ## Interview Recording URL Link
 
-[My 5-minute Interview Recording](https://northeastern.zoom.us/rec/share/PKtsC-wGwADPrTtDH-9tHFhL5EDi04ula3eNHyw4X_4969XAWDRm0C-CUhEApa1p.BY1Z6USCLAlec53A?startTime=1648520229000 (Passcode: d^hu3t@5))
+[My 5-minute Interview Recording](https://northeastern.zoom.us/rec/share/5U1qeus-w1wt4regfln7KPuo7zileKeKeK7eJNXHtNy1T03IJo_Ler2go3vK1N9p.kyJVeAcq-BrA9v67?startTime=1648520229000)
 
 
 ## License
